@@ -11,61 +11,85 @@
 
 void question1()
 {
-    pid_t lvl11, lvl12, lvl13, lvl21, lvl22, lvl23, lvl24, lvl25, lvl26;
+    int status;
 
+    registerProc(getpid(), getppid(), 0, 1);
 
-    lvl11 = fork();
-    if(lvl11 == 0){
+    if(fork() == 0){
+        registerProc(getpid(), getppid(), 1, 1);
 
-        lvl21 = fork();
-        if(lvl21 == 0)
+        if(fork() == 0){
+            registerProc(getpid(), getppid(), 2, 1);
             _exit(0);
-
-        lvl22= fork();
-        if(lvl22 == 0)
+        }   
+        if(fork() == 0){
+            registerProc(getpid(), getppid(), 2, 2);
             _exit(0);
+        }
 
-        wait(NULL);
-        wait(NULL);
+        int count = 0;
 
+        while(wait(NULL) > 0){
+            count++;
+        }
+        _exit(count);
     }
 
 
-    lvl12 = fork();
-    if(lvl12 == 0){
+    if(fork() == 0){
+        registerProc(getpid(), getppid(), 1, 2);
 
-        lvl23 = fork();
-        if(lvl23 == 0)
+        if(fork() == 0){
+            registerProc(getpid(), getppid(), 2, 3);
             _exit(0);
+        } 
 
-        wait(NULL);
+        int count = 0;
+
+        while(wait(NULL) > 0){
+            count++;
+        }
+        _exit(count);
+    }
+
+    if(fork() == 0){
+        registerProc(getpid(), getppid(), 1, 3);
+
+        if(fork() == 0){
+            registerProc(getpid(), getppid(), 2, 4);
+            _exit(0);
+        } 
+        if(fork() == 0){
+            registerProc(getpid(), getppid(), 2, 5);
+            _exit(0);
+        } 
+
+        if(fork() == 0){
+            registerProc(getpid(), getppid(), 2, 6);
+            _exit(0);
+        } 
+
+        int count = 0;
+
+        while(wait(NULL) > 0){
+            count++;
+        }
+        _exit(count);
 
     }
 
-    lvl13 = fork();
-    if(lvl13 == 0){
+    int somme = 0;
 
-        lvl24 = fork();
-        if(lvl24 == 0)
-            _exit(0);
-
-        lvl25 = fork();
-        if(lvl25 == 0)
-            _exit(0);
-
-        lvl26 = fork();
-        if(lvl26 == 0)
-            _exit(0);
-
-        wait(NULL);
-        wait(NULL);
-        wait(NULL);
-
+    while(wait(&status) > 0){
+        somme += WEXITSTATUS(status) + 1;
     }
 
+    printf("La somme de tous les enfants du lvl0 est %d\n", somme);
 
-    wait(NULL);
-    wait(NULL);
-    wait(NULL);
+    printProcRegistrations();
+
+    execl("/usr/bin/ls", "ls", "-l", NULL);
+
+    _exit(0);
 }
 
