@@ -1,1 +1,60 @@
-bonjour comment cava
+1.1.1:
+
+pwd: 
+/home/gigl/Bureau/INF2610/Section1_SystemCalls
+
+ls:
+Makefile                 systemcalls_part1    systemcalls_part2.c
+systemcalls_output1.txt  systemcalls_part1.c
+systemcalls_output2.txt  systemcalls_part2
+
+ls | sort:
+Makefile
+systemcalls_output1.txt
+systemcalls_output2.txt
+systemcalls_part1
+systemcalls_part1.c
+systemcalls_part2
+systemcalls_part2.c
+
+echo "test":
+test
+
+uname:
+Linux
+
+uname -s:
+Linux
+
+uname -r:
+5.18.19-200.fc36.x86_64
+
+uname -o:
+GNU/Linux
+
+uname -m:
+x86_64
+
+1.1.2
+
+a
+echo $PATH
+/home/gigl/.local/bin:/home/gigl/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:
+/opt/pmccabe:/usr/local/cours/inf1900/SimulIDE_0.3.12-SR8-INF1900.3/bin:/usr/local/cours/inf1900/bin:
+/opt/pmccabe:/usr/local/cours/inf1900/SimulIDE_0.3.12-SR8-INF1900.3/bin:/usr/local/cours/inf1900/bin:
+/opt/pmccabe:/usr/local/cours/inf1900/SimulIDE_0.3.12-SR8-INF1900.3/bin:/usr/local/cours/inf1900/bin
+
+b
+which sleep
+/usr/bin/sleep
+
+c
+[gigl@fedora-gigl bin]$ ./sleep 1
+
+[gigl@fedora-gigl /]$ ./usr/bin/sleep 1
+
+[gigl@fedora-gigl Section1_SystemCalls]$ ./../../../../../usr/bin/sleep 1
+
+d
+./../../../../../usr/bin/sleep 1000
+^C
