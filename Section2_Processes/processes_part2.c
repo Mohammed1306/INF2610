@@ -29,7 +29,12 @@ void* contribution(void*p)
 
 void question2( )
 {
-    // TODO
+    for(int i = 0; i < nb; i++){
+      if(fork() == 0){
+        contribution(i);
+        _exit(0);
+      }
+    }
     
 }
 
