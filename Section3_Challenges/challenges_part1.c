@@ -7,12 +7,43 @@
 */
 #include "challenges_part1.h"
 
+int nextRepId = 1;
 
-int ExpolrerRepertoire(char *chemin){
+typedef struct {
+    int dirId;
+    int parentId;
+    char chemin[MAX_PATH_LENGTH];
+    char fichiersTexte[MAX_PATH_LENGTH * 10];
+} InfoRepertoire;
+
+void WriteDirectoryInfo(InfoRepertoire *infoRep) {
+    FILE *fp = fopen("challenges_output.txt", "a");
+    if (!fp) {
+        perror("fopen");
+        exit(1);
+    }
+    fprintf(fp, "L'emplacement du repertoire est: %s\n", infoRep->chemin);
+    fprintf(fp, "L'id de ce repertoire est: %d\n", infoRep->dirId);
+    fprintf(fp, "L'id du parent de ce repertoire est: %d\n", infoRep->parentId);
+    fprintf(fp, "Les fichiers dans ce repertoire sont:\n    %s\n", infoRep->fichiersTexte);
+
+    fclose(fp);
+}
+
+int ExpolrerRepertoire(char *chemin, int parentId){
     DIR *repertoire = opendir(chemin);
-
     int cntFichiers = 0;
 
+    InfoRepertoire infoRep;
+    infoRep.dirId = nextRepId++;
+    infoRep.parentId = parentId;
+    /*Section réalisée à l'aide de ChatGpt : début*/
+    strncpy(infoRep.chemin, chemin, sizeof(infoRep.chemin) - 1);
+    infoRep.chemin[sizeof(infoRep.chemin) - 1] = '\0';
+    /*Section réalisée à l'aide de ChatGpt : fin*/
+    infoRep.fichiersTexte[0] = '\0';
+
+    char buffer[MAX_PATH_LENGTH];
     dirent *entre;
 
     while((entre = readdir(repertoire)) != NULL){
@@ -25,10 +56,16 @@ int ExpolrerRepertoire(char *chemin){
         snprintf(cheminComplet, sizeof(cheminComplet), "%s/%s", chemin, entre->d_name);
 
         if (entre->d_type == DT_REG) {
+            /*Section réalisée à l'aide de ChatGpt : début*/
+            snprintf(buffer, sizeof(buffer), "%s\n    ", entre->d_name);
+            if (strlen(infoRep.fichiersTexte) + strlen(buffer) < sizeof(infoRep.fichiersTexte)) {
+                strcat(infoRep.fichiersTexte, buffer);
+            }
+            /*Section réalisée à l'aide de ChatGpt : fin*/
             cntFichiers++;
         } else {
             if(fork() == 0){
-                int count = ExpolrerRepertoire(cheminComplet);
+                int count = ExpolrerRepertoire(cheminComplet, infoRep.dirId);
                 _exit(count);
             }
         }
@@ -45,12 +82,16 @@ int ExpolrerRepertoire(char *chemin){
         }
     }
 
+    WriteDirectoryInfo(&infoRep);
+
     return cntFichiers;
 }
 
 int main(int argc, char*argv[])
 {
-    int somme = ExpolrerRepertoire("root");
+    unlink("challenges_output.txt");
+
+    int somme = ExpolrerRepertoire("root", 0);
 
     printf("Nombre total de fichiers texte: %d\n", somme);
 
