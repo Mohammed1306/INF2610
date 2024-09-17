@@ -3,7 +3,7 @@
  * Automne 2024
  * Processes - part1.c
  *
- * Ajoutez vos noms, prénoms et matricules
+ * Mohammed Abdellatif Kallel 2292761, Joey Hasrouny 2185301
 */
 
 #include "libprocesslab/libprocesslab.h"

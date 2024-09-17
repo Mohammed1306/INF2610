@@ -3,7 +3,7 @@
  * Automne 2024
  * Challenges - part1.c
  *
- * Ajoutez vos noms, prénoms et matricules
+ * Mohammed Abdellatif Kallel 2292761, Joey Hasrouny 2185301
 */
 #include "challenges_part1.h"
 

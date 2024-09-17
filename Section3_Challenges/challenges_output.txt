@@ -1,4 +1,4 @@
-L'emplacement du repertoire est: root/dir_0_level_1/dir_4_level_2/dir_3_level_3
+L'emplacement du repertoire est: root/dir_0_level_1/dir_1_level_2/dir_0_level_3
 L'id de ce repertoire est: 4
 L'id du parent de ce repertoire est: 3
 Les fichiers dans ce repertoire sont:
@@ -7,73 +7,22 @@ Les fichiers dans ce repertoire sont:
     file_2_level_4.txt
     file_0_level_4.txt
     
-L'emplacement du repertoire est: root/dir_0_level_1/dir_4_level_2/dir_5_level_3
+L'emplacement du repertoire est: root/dir_3_level_1/dir_0_level_2/dir_0_level_3
+L'id de ce repertoire est: 4
+L'id du parent de ce repertoire est: 3
+Les fichiers dans ce repertoire sont:
+    file_4_level_4.txt
+    file_3_level_4.txt
+    file_1_level_4.txt
+    file_2_level_4.txt
+    file_0_level_4.txt
+    
+L'emplacement du repertoire est: root/dir_3_level_1/dir_0_level_2/dir_4_level_3
 L'id de ce repertoire est: 4
 L'id du parent de ce repertoire est: 3
 Les fichiers dans ce repertoire sont:
     file_5_level_4.txt
     file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_6_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_4_level_2/dir_0_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_5_level_4.txt
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_6_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_0_level_2/dir_1_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_3_level_2/dir_0_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_2_level_2/dir_2_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_3_level_2/dir_3_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_5_level_4.txt
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_2_level_2/dir_6_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
     file_3_level_4.txt
     file_1_level_4.txt
     file_2_level_4.txt
@@ -83,173 +32,11 @@ L'emplacement du repertoire est: root/dir_3_level_1/dir_0_level_2
 L'id de ce repertoire est: 3
 L'id du parent de ce repertoire est: 2
 Les fichiers dans ce repertoire sont:
-    file_0_level_3.txt
-    file_2_level_3.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_4_level_2/dir_1_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_4_level_2
-L'id de ce repertoire est: 3
-L'id du parent de ce repertoire est: 2
-Les fichiers dans ce repertoire sont:
-    file_6_level_3.txt
-    file_2_level_3.txt
-    file_4_level_3.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_2_level_2/dir_5_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_1_level_2/dir_1_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_3_level_2/dir_1_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_3_level_2/dir_3_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_2_level_2/dir_1_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_3_level_2/dir_6_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_2_level_2
-L'id de ce repertoire est: 3
-L'id du parent de ce repertoire est: 2
-Les fichiers dans ce repertoire sont:
-    file_0_level_3.txt
     file_3_level_3.txt
-    file_4_level_3.txt
+    file_2_level_3.txt
+    file_1_level_3.txt
     
-L'emplacement du repertoire est: root/dir_0_level_1/dir_3_level_2/dir_2_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_3_level_2/dir_4_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_3_level_2/dir_1_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_5_level_4.txt
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_3_level_2/dir_2_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_3_level_2
-L'id de ce repertoire est: 3
-L'id du parent de ce repertoire est: 2
-Les fichiers dans ce repertoire sont:
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_3_level_2/dir_5_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_1_level_2/dir_3_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_3_level_2
-L'id de ce repertoire est: 3
-L'id du parent de ce repertoire est: 2
-Les fichiers dans ce repertoire sont:
-    file_0_level_3.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_6_level_2/dir_2_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_6_level_2/dir_3_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_0_level_2/dir_0_level_3
+L'emplacement du repertoire est: root/dir_0_level_1/dir_1_level_2/dir_3_level_3
 L'id de ce repertoire est: 4
 L'id du parent de ce repertoire est: 3
 Les fichiers dans ce repertoire sont:
@@ -261,108 +48,11 @@ Les fichiers dans ce repertoire sont:
     file_6_level_4.txt
     file_0_level_4.txt
     
-L'emplacement du repertoire est: root/dir_3_level_1/dir_1_level_2/dir_4_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_5_level_4.txt
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_0_level_2/dir_5_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_5_level_4.txt
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_6_level_2
+L'emplacement du repertoire est: root/dir_0_level_1/dir_1_level_2
 L'id de ce repertoire est: 3
 L'id du parent de ce repertoire est: 2
 Les fichiers dans ce repertoire sont:
-    file_0_level_3.txt
-    file_1_level_3.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_5_level_2/dir_0_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_5_level_4.txt
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_6_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_1_level_2
-L'id de ce repertoire est: 3
-L'id du parent de ce repertoire est: 2
-Les fichiers dans ce repertoire sont:
-    file_0_level_3.txt
     file_2_level_3.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_4_level_2/dir_2_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_4_level_4.txt
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_5_level_2/dir_2_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_4_level_2/dir_1_level_3
-L'id de ce repertoire est: 4
-L'id du parent de ce repertoire est: 3
-Les fichiers dans ce repertoire sont:
-    file_3_level_4.txt
-    file_1_level_4.txt
-    file_2_level_4.txt
-    file_0_level_4.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1/dir_0_level_2
-L'id de ce repertoire est: 3
-L'id du parent de ce repertoire est: 2
-Les fichiers dans ce repertoire sont:
-    file_6_level_3.txt
-    file_3_level_3.txt
-    file_2_level_3.txt
-    file_1_level_3.txt
-    file_4_level_3.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_4_level_2
-L'id de ce repertoire est: 3
-L'id du parent de ce repertoire est: 2
-Les fichiers dans ce repertoire sont:
-    file_0_level_3.txt
-    
-L'emplacement du repertoire est: root/dir_0_level_1
-L'id de ce repertoire est: 2
-L'id du parent de ce repertoire est: 1
-Les fichiers dans ce repertoire sont:
-    file_1_level_2.txt
-    file_5_level_2.txt
-    
-L'emplacement du repertoire est: root/dir_3_level_1/dir_5_level_2
-L'id de ce repertoire est: 3
-L'id du parent de ce repertoire est: 2
-Les fichiers dans ce repertoire sont:
     file_1_level_3.txt
     
 L'emplacement du repertoire est: root/dir_3_level_1
@@ -370,13 +60,113 @@ L'id de ce repertoire est: 2
 L'id du parent de ce repertoire est: 1
 Les fichiers dans ce repertoire sont:
     file_2_level_2.txt
-    file_6_level_2.txt
+    file_1_level_2.txt
+    
+L'emplacement du repertoire est: root/dir_2_level_1/dir_3_level_2/dir_1_level_3
+L'id de ce repertoire est: 4
+L'id du parent de ce repertoire est: 3
+Les fichiers dans ce repertoire sont:
+    file_5_level_4.txt
+    file_4_level_4.txt
+    file_3_level_4.txt
+    file_1_level_4.txt
+    file_2_level_4.txt
+    file_0_level_4.txt
+    
+L'emplacement du repertoire est: root/dir_0_level_1
+L'id de ce repertoire est: 2
+L'id du parent de ce repertoire est: 1
+Les fichiers dans ce repertoire sont:
+    file_2_level_2.txt
+    file_3_level_2.txt
+    file_0_level_2.txt
+    file_4_level_2.txt
+    
+L'emplacement du repertoire est: root/dir_1_level_1/dir_1_level_2/dir_0_level_3
+L'id de ce repertoire est: 4
+L'id du parent de ce repertoire est: 3
+Les fichiers dans ce repertoire sont:
+    file_1_level_4.txt
+    file_2_level_4.txt
+    file_0_level_4.txt
+    
+L'emplacement du repertoire est: root/dir_2_level_1/dir_3_level_2/dir_3_level_3
+L'id de ce repertoire est: 4
+L'id du parent de ce repertoire est: 3
+Les fichiers dans ce repertoire sont:
+    file_3_level_4.txt
+    file_1_level_4.txt
+    file_2_level_4.txt
+    file_0_level_4.txt
+    
+L'emplacement du repertoire est: root/dir_2_level_1/dir_3_level_2/dir_5_level_3
+L'id de ce repertoire est: 4
+L'id du parent de ce repertoire est: 3
+Les fichiers dans ce repertoire sont:
+    file_4_level_4.txt
+    file_3_level_4.txt
+    file_1_level_4.txt
+    file_2_level_4.txt
+    file_0_level_4.txt
+    
+L'emplacement du repertoire est: root/dir_2_level_1/dir_3_level_2/dir_2_level_3
+L'id de ce repertoire est: 4
+L'id du parent de ce repertoire est: 3
+Les fichiers dans ce repertoire sont:
+    file_5_level_4.txt
+    file_4_level_4.txt
+    file_3_level_4.txt
+    file_1_level_4.txt
+    file_2_level_4.txt
+    file_6_level_4.txt
+    file_0_level_4.txt
+    
+L'emplacement du repertoire est: root/dir_1_level_1/dir_1_level_2/dir_2_level_3
+L'id de ce repertoire est: 4
+L'id du parent de ce repertoire est: 3
+Les fichiers dans ce repertoire sont:
+    file_5_level_4.txt
+    file_4_level_4.txt
+    file_3_level_4.txt
+    file_1_level_4.txt
+    file_2_level_4.txt
+    file_6_level_4.txt
+    file_0_level_4.txt
+    
+L'emplacement du repertoire est: root/dir_2_level_1/dir_3_level_2
+L'id de ce repertoire est: 3
+L'id du parent de ce repertoire est: 2
+Les fichiers dans ce repertoire sont:
+    file_0_level_3.txt
+    file_4_level_3.txt
+    
+L'emplacement du repertoire est: root/dir_1_level_1/dir_1_level_2
+L'id de ce repertoire est: 3
+L'id du parent de ce repertoire est: 2
+Les fichiers dans ce repertoire sont:
+    file_3_level_3.txt
+    file_1_level_3.txt
+    file_4_level_3.txt
+    
+L'emplacement du repertoire est: root/dir_1_level_1
+L'id de ce repertoire est: 2
+L'id du parent de ce repertoire est: 1
+Les fichiers dans ce repertoire sont:
+    file_2_level_2.txt
+    file_3_level_2.txt
+    file_0_level_2.txt
+    
+L'emplacement du repertoire est: root/dir_2_level_1
+L'id de ce repertoire est: 2
+L'id du parent de ce repertoire est: 1
+Les fichiers dans ce repertoire sont:
+    file_2_level_2.txt
+    file_0_level_2.txt
+    file_1_level_2.txt
+    file_4_level_2.txt
     
 L'emplacement du repertoire est: root
 L'id de ce repertoire est: 1
 L'id du parent de ce repertoire est: 0
 Les fichiers dans ce repertoire sont:
-    file_2_level_1.txt
-    file_1_level_1.txt
-    file_4_level_1.txt
     

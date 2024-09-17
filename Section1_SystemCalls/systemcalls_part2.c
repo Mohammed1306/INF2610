@@ -3,7 +3,7 @@
  * Automne 2024
  * SystemCalls - part2.c
  *
- * Ajoutez vos noms, prénoms et matricules
+ * Mohammed Abdellatif Kallel 2292761, Joey Hasrouny 2185301
 */
 
 #include <stdio.h>
@@ -12,7 +12,6 @@
 
 void part21 ()
 {
-    // TODO
     const char nullCharacter = '\0';
     const char* outputMessage = "77dbcb01f571f1c32p196c3a7d27f62e\n";
     const ssize_t lengthOfMessage = 33;
@@ -27,7 +26,6 @@ void part21 ()
 
 void part22 ()
 {
-    // TODO
     setvbuf(stdout, NULL, _IONBF, 0);
 
     const char nullCharacter = '\0';
