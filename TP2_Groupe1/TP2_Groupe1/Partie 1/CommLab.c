@@ -7,7 +7,7 @@
 int main(int argc, char** argv) {
 
     // QUESTION 1 --------------------------------------
-    // Compile question 1:
+    // Compile question 1: test
     if (!fork()) {
         execlp("gcc", "gcc", "-o", "ansq1", "TubesNommes.c", NULL);
     }
