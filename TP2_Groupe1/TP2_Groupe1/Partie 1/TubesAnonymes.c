@@ -1,11 +1,7 @@
-// Ajouter les directives d'inclusion nécessaires
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/wait.h>
 #include <fcntl.h>
-
-// 0: lecture
-// 1: ecriture
 
 
 int main() {
