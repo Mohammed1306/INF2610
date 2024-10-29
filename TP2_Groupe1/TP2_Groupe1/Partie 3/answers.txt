@@ -1,0 +1,5 @@
+Partie 3 Question 1 (Merge-sort parallèle) :
+1. Augmenter le nombre de processus de N à N+δ crée une surcharge de changement de contexte (switch) entre les
+processus, car les coeurs doivent alterner entre eux (selon que le quota du temps alloué à un processus s'expire par exemple).
+Cela entraîne une diminution de la performance globale, car le temps CPU est partiellement gaspillé dans la gestion 
+des processus au lieu de l'éxécution de calculs.
