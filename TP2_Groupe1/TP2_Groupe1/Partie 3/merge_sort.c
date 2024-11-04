@@ -6,6 +6,7 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
+    fichier = open("sorted_array.txt", O_TRUNC | O_WRONLY);
 
     int num_processes = atoi(argv[1]);
     int array_size = atoi(argv[2]);
@@ -42,6 +43,22 @@ int main(int argc, char *argv[]) {
         shared_data->array[i] = rand() % MAX_NUM_SIZE;
     }
 
+
+
+    write(fichier, "Array = [ ", strlen("Array = [ "));
+
+    char buffer[20];
+    int length;
+    for(int i = 0; i < array_size - 1; i++){
+        length = sprintf(buffer, "%d", shared_data->array[i]);
+        write(fichier, buffer, length);
+        write(fichier, ", ", strlen(", "));
+    }
+    length = sprintf(buffer, "%d", shared_data->array[array_size-1]);
+    write(fichier, buffer, length);
+    write(fichier, " ]\n", strlen(" ]\n"));
+
+
     execute_merge_sort(0, array_size - 1, num_processes);
 
     while (wait(NULL) > 0);
@@ -51,16 +68,70 @@ int main(int argc, char *argv[]) {
     munmap(shared_data, shared_mem_size);
     shm_unlink("/shared_data");
 
+    close(fichier);
     return 0;
 }
 
 void merge_sort( int left, int right) {
+    struct timeval tvDebut, tvFin;
+
+    if(gettimeofday(&tvDebut, NULL)<0){
+        perror("Erreur lorsssss de gettimeofday");
+        exit(EXIT_FAILURE);
+    }
+
+    char buffer[20];
+    int length;
+
+    write(fichier, "Start = ", strlen("Start = "));
+
+    length = sprintf(buffer, "%d", left);
+    write(fichier, buffer, length);
+
+    write(fichier, ", End = ", strlen(", End = "));
+    length = sprintf(buffer, "%d", right);
+    write(fichier, buffer, length);
+
+    write(fichier, " Sorted = [ ", strlen("Sorted = [ "));
+
+    for(int i = left; i < right; i++){
+        length = sprintf(buffer, "%d", shared_data->array[i]);
+        write(fichier, buffer, length);
+        write(fichier, ", ", strlen(", "));
+    }
+    length = sprintf(buffer, "%d", shared_data->array[right]);
+    write(fichier, buffer, length);
+
+    write(fichier, " ] ", strlen(" ]\n"));
+
     if (left < right) {
         int mid = left + (right - left) / 2;
         merge_sort(left, mid);
         merge_sort(mid + 1, right);
         merge(left, mid, right);
     }
+
+    if(gettimeofday(&tvFin, NULL)<0){
+        perror("Erreur lors de gettimeofday");
+        exit(EXIT_FAILURE);
+    }
+
+    long seconds = tvFin.tv_sec - tvDebut.tv_sec;
+    long micros = tvFin.tv_usec - tvDebut.tv_usec;
+    if (micros < 0) {
+        seconds -= 1;
+        micros += 1000000;
+    }
+    
+    char buffer2[30];
+    length = sprintf(buffer2, "%ld", seconds);
+    write(fichier, buffer, length);
+    write(fichier, " ", strlen(" "));
+
+    length = sprintf(buffer2, "%ld", micros);
+    write(fichier, buffer, length);
+    write(fichier, "\n", strlen("\n"));
+
 }
 
 void merge(int left, int mid, int right) {

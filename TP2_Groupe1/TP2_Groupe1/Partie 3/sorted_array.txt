@@ -1,0 +1,17 @@
+Array = [ 701346, 279890, 886687, 700702, 67321, 86038, 647982, 152910, 97479, 57622 ]
+Start = 8, End = 9 Sorted = [97479, 57622 ] Start = 8, End = 8 Sorted = [97479 ] 9 974
+Start = 9, End = 9 Sorted = [57622 ] 5 57
+5 5762
+Start = 5, End = 7 Sorted = [86038, 647982, 152910 ] Start = 5, End = 6 Sorted = [86038, 647982 ] Start = 5, End = 5 Sorted = [86038 ] 8 86
+Start = 6, End = 6 Sorted = [647982 ] 6 64
+6 64
+Start = 7, End = 7 Sorted = [152910 ] 1 15
+1 152
+Start = 3, End = 4 Sorted = [700702, 67321 ] Start = 3, End = 3 Sorted = [700702 ] 7 70
+Start = 4, End = 4 Sorted = [67321 ] 6 67
+6 6732
+Start = 0, End = 2 Sorted = [701346, 279890, 886687 ] Start = 0, End = 1 Sorted = [701346, 279890 ] Start = 0, End = 0 Sorted = [701346 ] 7 70
+Start = 1, End = 1 Sorted = [279890 ] 2 27
+2 27
+Start = 2, End = 2 Sorted = [886687 ] 8 88
+8 886

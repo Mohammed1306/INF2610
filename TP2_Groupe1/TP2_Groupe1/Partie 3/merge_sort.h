@@ -25,6 +25,7 @@ SharedData *shared_data;
 sem_t* mutex;
 int fd;
 struct timeval start_time, end_time;
+int fichier;
 
 void merge_sort( int left, int right);
 void merge(int left, int mid, int right);
