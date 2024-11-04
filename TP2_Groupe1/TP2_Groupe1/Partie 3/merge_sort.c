@@ -45,23 +45,47 @@ int main(int argc, char *argv[]) {
 
 
 
-    write(fichier, "Array = [ ", strlen("Array = [ "));
+    write_array_into_file();
 
-    char buffer[20];
-    int length;
-    for(int i = 0; i < array_size - 1; i++){
-        length = sprintf(buffer, "%d", shared_data->array[i]);
-        write(fichier, buffer, length);
-        write(fichier, ", ", strlen(", "));
+    struct timeval tvDebut, tvFin;
+
+    if(gettimeofday(&tvDebut, NULL)<0){
+        perror("Erreur lorsssss de gettimeofday");
+        exit(EXIT_FAILURE);
     }
-    length = sprintf(buffer, "%d", shared_data->array[array_size-1]);
-    write(fichier, buffer, length);
-    write(fichier, " ]\n", strlen(" ]\n"));
-
 
     execute_merge_sort(0, array_size - 1, num_processes);
 
     while (wait(NULL) > 0);
+    if(gettimeofday(&tvFin, NULL)<0){
+        perror("Erreur lors de gettimeofday");
+        exit(EXIT_FAILURE);
+    }
+
+    long seconds = tvFin.tv_sec - tvDebut.tv_sec;
+    long micros = tvFin.tv_usec - tvDebut.tv_usec;
+    if (micros < 0) {
+        seconds -= 1;
+        micros += 1000000;
+    }
+    
+    char buffer[30];
+    int length;
+
+    write(fichier, "Duration for ", strlen("Duration for "));
+    length = sprintf(buffer, "%d", num_processes);
+    write(fichier, buffer, length);
+
+    write(fichier, " processes: ", strlen(" processes: "));
+
+
+    length = sprintf(buffer, "%ld", seconds);
+    write(fichier, buffer, length);
+    write(fichier, ",", strlen(","));
+
+    length = sprintf(buffer, "%ld", micros);
+    write(fichier, buffer, length);
+    write(fichier, " seconds\n", strlen(" seconds\n"));
 
     show_array();
 
@@ -73,12 +97,20 @@ int main(int argc, char *argv[]) {
 }
 
 void merge_sort( int left, int right) {
-    struct timeval tvDebut, tvFin;
-
-    if(gettimeofday(&tvDebut, NULL)<0){
-        perror("Erreur lorsssss de gettimeofday");
-        exit(EXIT_FAILURE);
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        merge_sort(left, mid);
+        merge_sort(mid + 1, right);
+        merge(left, mid, right);
     }
+}
+
+void merge(int left, int mid, int right) {
+    int i, j, k;
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    int L[n1], R[n2];
 
     char buffer[20];
     int length;
@@ -102,44 +134,8 @@ void merge_sort( int left, int right) {
     length = sprintf(buffer, "%d", shared_data->array[right]);
     write(fichier, buffer, length);
 
-    write(fichier, " ] ", strlen(" ]\n"));
+    write(fichier, " ]\n", strlen(" ]\n"));
 
-    if (left < right) {
-        int mid = left + (right - left) / 2;
-        merge_sort(left, mid);
-        merge_sort(mid + 1, right);
-        merge(left, mid, right);
-    }
-
-    if(gettimeofday(&tvFin, NULL)<0){
-        perror("Erreur lors de gettimeofday");
-        exit(EXIT_FAILURE);
-    }
-
-    long seconds = tvFin.tv_sec - tvDebut.tv_sec;
-    long micros = tvFin.tv_usec - tvDebut.tv_usec;
-    if (micros < 0) {
-        seconds -= 1;
-        micros += 1000000;
-    }
-    
-    char buffer2[30];
-    length = sprintf(buffer2, "%ld", seconds);
-    write(fichier, buffer, length);
-    write(fichier, " ", strlen(" "));
-
-    length = sprintf(buffer2, "%ld", micros);
-    write(fichier, buffer, length);
-    write(fichier, "\n", strlen("\n"));
-
-}
-
-void merge(int left, int mid, int right) {
-    int i, j, k;
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
-
-    int L[n1], R[n2];
 
     for (i = 0; i < n1; i++)
         L[i] = shared_data->array[left + i];
@@ -201,6 +197,21 @@ void execute_merge_sort(int start, int end, int num_processes) {
             }
         }
     }
+}
+
+void write_array_into_file(){
+    write(fichier, "Array = [ ", strlen("Array = [ "));
+
+    char buffer[20];
+    int length;
+    for(int i = 0; i < shared_data->size - 1; i++){
+        length = sprintf(buffer, "%d", shared_data->array[i]);
+        write(fichier, buffer, length);
+        write(fichier, ", ", strlen(", "));
+    }
+    length = sprintf(buffer, "%d", shared_data->array[shared_data->size-1]);
+    write(fichier, buffer, length);
+    write(fichier, " ]\n", strlen(" ]\n"));
 }
 
 void show_array(){

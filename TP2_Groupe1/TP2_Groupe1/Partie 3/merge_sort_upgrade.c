@@ -1,17 +1,96 @@
 #include "merge_sort.h"
 
+#define THRESHOLD 1000
+
 int main(int argc, char *argv[]) {
     if (argc != 3) {
         fprintf(stderr, "Usage: %s <array_size> <num_processes>\n", argv[0]);
         exit(1);
     }
-    
+
+    fichier = open("sorted_array.txt", O_TRUNC | O_WRONLY);
+
+    int num_processes = atoi(argv[1]);
+    int array_size = atoi(argv[2]);
+
+    if (num_processes < 1 || array_size < 1 || array_size > MAX_ARRAY_SIZE) {
+        fprintf(stderr, "Le nombere de processus doit etre supérieur ou égale a 1 et la taille du tableau entre 1 et %d.\n", MAX_ARRAY_SIZE);
+        exit(EXIT_FAILURE);
+    }
+
+    fd = shm_open("/shared_data", O_CREAT | O_RDWR, 0666);
+    if (fd == -1) {
+        perror("Erreur lors de la creation de la memoire paratgé");
+        exit(EXIT_FAILURE);
+    }
+
+    size_t shared_mem_size = sizeof(SharedData) + array_size * sizeof(int);
+    if (ftruncate(fd, shared_mem_size) == -1) {
+        perror("Erreur lors de ftruncate");
+        exit(EXIT_FAILURE);
+    }
+
+    shared_data = mmap(NULL, shared_mem_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+    if (shared_data == MAP_FAILED) {
+        perror("Erreur lors de mmap");
+        exit(EXIT_FAILURE);
+    }
+
+    shared_data -> size = array_size;
+    shared_data -> array = (int*)(shared_data + 1);
+
     /* Populate the array to test the sort */
     srand(time(NULL));
     for (int i = 0; i < array_size; i++) {
         shared_data->array[i] = rand() % MAX_NUM_SIZE;
     }
 
+    struct timeval tvDebut, tvFin;
+
+    if(gettimeofday(&tvDebut, NULL)<0){
+        perror("Erreur lorsssss de gettimeofday");
+        exit(EXIT_FAILURE);
+    }
+
+    execute_merge_sort(0, array_size - 1, num_processes);
+
+    while (wait(NULL) > 0);
+    if(gettimeofday(&tvFin, NULL)<0){
+        perror("Erreur lors de gettimeofday");
+        exit(EXIT_FAILURE);
+    }
+
+    long seconds = tvFin.tv_sec - tvDebut.tv_sec;
+    long micros = tvFin.tv_usec - tvDebut.tv_usec;
+    if (micros < 0) {
+        seconds -= 1;
+        micros += 1000000;
+    }
+    
+    char buffer[30];
+    int length;
+
+    write(fichier, "Duration for ", strlen("Duration for "));
+    length = sprintf(buffer, "%d", num_processes);
+    write(fichier, buffer, length);
+
+    write(fichier, " processes: ", strlen(" processes: "));
+
+
+    length = sprintf(buffer, "%ld", seconds);
+    write(fichier, buffer, length);
+    write(fichier, ",", strlen(","));
+
+    length = sprintf(buffer, "%ld", micros);
+    write(fichier, buffer, length);
+    write(fichier, " seconds\n", strlen(" seconds\n"));
+
+    show_array();
+
+    munmap(shared_data, shared_mem_size);
+    shm_unlink("/shared_data");
+
+    close(fichier);
     return 0;
 }
 
@@ -61,6 +140,36 @@ void merge(int left, int mid, int right) {
         shared_data->array[k] = R[j];
         j++;
         k++;
+    }
+}
+
+void execute_merge_sort(int start, int end, int num_processes) {
+    if (end - start + 1 <= THRESHOLD || num_processes <= 1) {
+        // Effectuer le tri séquentiellement si le seuil est atteint ou si un seul processus est requis
+        merge_sort(start, end);
+    } else {
+        int mid = start + (end - start) / 2;
+        pid_t left_pid = fork();
+        if (left_pid < 0) {
+            perror("Erreur lors du fork gauche");
+            exit(EXIT_FAILURE);
+        } else if (left_pid == 0) {
+            execute_merge_sort(start, mid, num_processes / 2);
+            _exit(0);
+        } else {
+            pid_t right_pid = fork();
+            if (right_pid < 0) {
+                perror("Erreur lors du fork droit");
+                exit(EXIT_FAILURE);
+            } else if (right_pid == 0) {
+                execute_merge_sort(mid + 1, end, num_processes - num_processes / 2);
+                _exit(0);
+            } else  {
+                waitpid(left_pid, NULL, 0);
+                waitpid(right_pid, NULL, 0);
+                merge(start, mid, end);
+            }
+        }
     }
 }
 

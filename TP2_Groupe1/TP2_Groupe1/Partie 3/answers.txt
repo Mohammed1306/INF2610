@@ -1,5 +1,36 @@
 Partie 3 Question 1 (Merge-sort parallèle) :
+
 1. Augmenter le nombre de processus de N à N+δ crée une surcharge de changement de contexte (switch) entre les
 processus, car les coeurs doivent alterner entre eux (selon que le quota du temps alloué à un processus s'expire par exemple).
 Cela entraîne une diminution de la performance globale, car le temps CPU est partiellement gaspillé dans la gestion 
 des processus au lieu de l'éxécution de calculs.
+
+
+
+Partie 3 Question 2:
+
+1. Voilà les résultats pour un tri d'un tableau de 100 éléments:
+  Duration for 1 processes: 0,8325 seconds
+  Duration for 4 processes: 0,19158 seconds
+  Duration for 8 processes: 0,13415 seconds
+  Duration for 16 processes: 0,24888 seconds
+
+2. 1 VS 4: 4,35 fois plus rapide
+   1 VS 8: 6,21 fois plua rapide
+   1 VS 16: 3,34 fois plus rapide
+3. Ces résultats ne sont pas surprenant étant donné qu'on délègue le travail d'un seul processus à plusieurs autres.
+Cependant, on peut remarquer que quand on utilise 16 processus, cela prends plus de temps que qu'on utilise 8 (ou 4)
+La raison est expliquée dans la question 1 de la partie; on a dépassé le nombre de coeurs disponibles.
+
+4. Duration for 8 processes (sans journalisation): 0,5324 seconds
+   Duration for 8 processes (avec journalisation): 0,13523 seconds
+En moyenne le code est 5 fois plus rapide avec la journalisation que sans.
+
+5. Une première approche serait d'utiliser les threads à la place des processus. Non seulement, on aura plus besoin d'utiliser des espaces
+mémoires paratagées, mais on leurs créations prendra moins de temps que la création d'un processus. Il faudra cependant utiliser des pools
+de threads ce qui en dehors du cadre du cours.
+Une première approche serait de limiter le nombre de processus créés pour éviter le dépassement de nombre de coeurs disponibles.
+Par exemple, si la taille du tableau que chaque processus traite est inférieure à un seuil minimum, le processus ne crée pas d'enfants.
+Duration for 8 processes (sans seuil): 0,13415 seconds
+Duration for 8 processes: 0,10 seconds
+Le programme est 1,34 fois plus rapide.

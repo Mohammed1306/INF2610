@@ -32,3 +32,4 @@ void merge(int left, int mid, int right);
 void execute_merge_sort(int start, int end, int num_processes);
 void show_array();
 void write_array_into_file();
+void* thread_merge_sort(void* args);
