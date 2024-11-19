@@ -19,8 +19,10 @@ sem_t sem_critical;
 
 int flag = 0;
 
-void* producer(void* arg) {
-    while (1) {
+void *producer(void *arg)
+{
+    while (1)
+    {
         sem_wait(&sem_initial);
         sem_wait(&sem_critical);
         buffer[ip] = rand() % 9 + 1;
@@ -33,54 +35,78 @@ void* producer(void* arg) {
     pthread_exit(NULL);
 }
 
-void* consumer(void* arg) {
-    while (1) {
+void *consumer(void *arg)
+{
+    while (1)
+    {
         sem_wait(&sem_busy);
         sem_wait(&sem_critical);
         int x = buffer[ic];
         ic = (ic + 1) % BUFFER_SIZE;
         sem_post(&sem_critical);
         sem_post(&sem_initial);
-        if(x == 0){
+        if (x == 0)
+        {
             break;
         }
     }
     pthread_exit(NULL);
 }
 
-void changeFlag(){
+void changeFlag()
+{
     flag = 1;
     printf("Flag changed\n");
 }
 
-int main() {
+int main()
+{
     pthread_t prod_thread[N_THREADS], cons_thread[N_THREADS_2];
 
     sem_init(&sem_initial, 0, BUFFER_SIZE);
-    sem_init(&sem_busy, 0, 0);           
-    sem_init(&sem_critical, 0, 1); 
-    signal(SIGALRM, &changeFlag);      
+    sem_init(&sem_busy, 0, 0);
+    sem_init(&sem_critical, 0, 1);
+    signal(SIGALRM, &changeFlag);
 
-    for(int i = 0; i < N_THREADS; i++){
+    for (int i = 0; i < N_THREADS; i++)
+    {
         pthread_create(&prod_thread[i], NULL, producer, NULL);
     }
 
-    for(int i = 0; i < N_THREADS_2; i++){
+    for (int i = 0; i < N_THREADS_2; i++)
+    {
         pthread_create(&cons_thread[i], NULL, consumer, NULL);
     }
 
     alarm(1);
 
-    for(int i = 0; i < N_THREADS; i++){
+    for (int i = 0; i < N_THREADS; i++)
+    {
         pthread_join(prod_thread[i], NULL);
     }
 
+    // Cette section cause l'interblocage
+    // C'est l'interblocage classique du problème du producteur consommateur
+    // On essaye de produire des zéros sans informer les consommateurs qu'il y a des
+    // produits à consommer en ajoutant un jetons à sem_busy
+    /*
     for(int i = 0; i < N_THREADS_2; i++){
         buffer[ip] = 0;
         ip = (ip + 1) % BUFFER_SIZE;
+    }*/
+
+    //Correction:
+    for(int i = 0; i < N_THREADS_2; i++){
+        sem_wait(&sem_initial);
+        sem_wait(&sem_critical);
+        buffer[ip] = 0;
+        ip = (ip + 1) % BUFFER_SIZE;
+        sem_post(&sem_critical);
+        sem_post(&sem_busy);
     }
 
-    for(int i = 0; i < N_THREADS_2; i++){
+    for (int i = 0; i < N_THREADS_2; i++)
+    {
         pthread_join(cons_thread[i], NULL);
     }
 
