@@ -85,18 +85,24 @@ int main()
         pthread_join(prod_thread[i], NULL);
     }
 
-    // Cette section cause l'interblocage
-    // C'est l'interblocage classique du problème du producteur consommateur
-    // On essaye de produire des zéros sans informer les consommateurs qu'il y a des
-    // produits à consommer en ajoutant un jetons à sem_busy
     /*
+    Cette section cause l'interblocage.
+    Conditions:
+        Exclusion mutuelle: sem_busy est disponible
+        Détention et attente: Les consommateurs peuvent demander à sem_busy
+        Pas de réquisition: Le processus parent est le seul qui peut libérer sem_busy
+        Attente circulaire: Les consommateurs attendent la libération de sem_busy alors que le parent ne le fait jamais
+    Interblocage vu en cours: problème du producteur consommateur.
+
+
     for(int i = 0; i < N_THREADS_2; i++){
         buffer[ip] = 0;
         ip = (ip + 1) % BUFFER_SIZE;
     }*/
 
-    //Correction:
-    for(int i = 0; i < N_THREADS_2; i++){
+    // Correction:
+    for (int i = 0; i < N_THREADS_2; i++)
+    {
         sem_wait(&sem_initial);
         sem_wait(&sem_critical);
         buffer[ip] = 0;
@@ -104,6 +110,11 @@ int main()
         sem_post(&sem_critical);
         sem_post(&sem_busy);
     }
+    /*
+    Explication: Si on veut produire des zéros, il faut se comporter comme un producteur
+    même si on est le processus principal. Ce-dernier va donc informer les consomateurs
+    qu'il y a des produits à consomer en libérant un jeton du sem_busy.
+    */
 
     for (int i = 0; i < N_THREADS_2; i++)
     {

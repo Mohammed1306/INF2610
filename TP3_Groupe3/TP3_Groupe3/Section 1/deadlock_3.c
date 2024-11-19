@@ -68,6 +68,11 @@ void* is_this_a_deadlock(void * args) {
     }
 
     if (a > 0) {
+        /*
+        Le seul cas où un blocage (et non un interblocage) se produirait serait si key = 17.
+        Cela causerait une boucle infinie ce qui bloquerait le code.
+        Pour corriger le code, on pourrait juste enleve la ligne if (key == 17) while(1);
+        */
         if (key == 17) while(1);
         printf("A is positive\n");
     } else {
