@@ -1,1 +1,0 @@
-Duration for 8 processes: 0,10 seconds
